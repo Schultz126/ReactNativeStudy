@@ -7,7 +7,8 @@ const goalStyles = StyleSheet.create({
     borderStyle: 'solid',
     borderRadius: 5,
     padding: 10,
-    width: '70%'
+    width: '70%',
+    backgroundColor: '#ffffff'
   }
 });
 

@@ -1,4 +1,4 @@
-import { View, Platform, Alert } from 'react-native';
+import { View, ScrollView } from 'react-native';
 import styles from './styles/globalStyles';
 import AddGoalButton from './components/AddGoalButton/AddGoalButton';
 import GoalInput from './components/GoalInput/GoalInput';
@@ -12,7 +12,7 @@ export default function App() {
       setGoal(e);
   }
 
-  function addGoalHandler(e) {
+  function addGoalHandler() {
     if(!goal) return;
 
     const newGoal = {
@@ -32,7 +32,9 @@ export default function App() {
         <AddGoalButton text={goal} handleButtonEvent={addGoalHandler}/>
       </View>
       <View style={styles.goalsContainer}>
-        {goalList.map((goal) => <ListElement key={goal.id} goalObj={goal} setGoalList={setGoalList}/>)}
+        <ScrollView>
+          {goalList.map((goal) => <ListElement key={goal.id} goalObj={goal} setGoalList={setGoalList}/>)}
+        </ScrollView>
       </View>
     </View>
   );

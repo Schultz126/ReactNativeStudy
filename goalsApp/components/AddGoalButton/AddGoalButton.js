@@ -1,11 +1,11 @@
-import { Button } from "react-native";
+import { Button, TouchableOpacity, Text } from "react-native";
+import addButtonStyles from "./AddGoalButtonStyles";
 
 const AddGoalButton = ({text, handleButtonEvent}) => {
     return (
-        <Button 
-        title='Add goal' 
-        onPress={() => handleButtonEvent(text)}
-        />
+        <TouchableOpacity style={addButtonStyles.button}>
+            <Text style={addButtonStyles.textColorWhite} onPress={() => handleButtonEvent(text)}>Add Item</Text>
+        </TouchableOpacity>
     )
 }
 
