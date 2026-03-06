@@ -23,14 +23,7 @@ export default function App() {
     setGoalList((e) => [...e, newGoal])
     setGoal('')
   };
-
-  function showAlert(message) {
-          if (Platform.OS === 'web') {
-              window.alert(message);
-          } else {
-              Alert.alert(message);
-          }
-      }
+ 
 
   return (
     <View style={styles.container}>
@@ -39,7 +32,7 @@ export default function App() {
         <AddGoalButton text={goal} handleButtonEvent={addGoalHandler}/>
       </View>
       <View style={styles.goalsContainer}>
-        {goalList.map((goal) => <ListElement key={goal.id} value={goal.value} message={showAlert}/>)}
+        {goalList.map((goal) => <ListElement key={goal.id} goalObj={goal} setGoalList={setGoalList}/>)}
       </View>
     </View>
   );
