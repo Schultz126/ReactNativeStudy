@@ -1,4 +1,4 @@
-import { View, ScrollView } from 'react-native';
+import { View, ScrollView, FlatList } from 'react-native';
 import styles from './styles/globalStyles';
 import AddGoalButton from './components/AddGoalButton/AddGoalButton';
 import GoalInput from './components/GoalInput/GoalInput';
@@ -32,9 +32,10 @@ export default function App() {
         <AddGoalButton text={goal} handleButtonEvent={addGoalHandler}/>
       </View>
       <View style={styles.goalsContainer}>
-        <ScrollView>
-          {goalList.map((goal) => <ListElement key={goal.id} goalObj={goal} setGoalList={setGoalList}/>)}
-        </ScrollView>
+        <FlatList 
+        data={goalList}
+        renderItem={(itemData) => <ListElement goalObj={itemData.item} setGoalList={setGoalList}/>}
+        />
       </View>
     </View>
   );
