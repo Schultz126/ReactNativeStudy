@@ -1,6 +1,5 @@
 import { TextInput } from "react-native";
 import goalStyles from "./GoalInputStyles";
-import { useState } from "react";
 
 const GoalInput = ({textInputHandler, goal}) => {
     return(

@@ -34,7 +34,9 @@ export default function App() {
       <View style={styles.goalsContainer}>
         <FlatList 
         data={goalList}
-        renderItem={(itemData) => <ListElement goalObj={itemData.item} setGoalList={setGoalList}/>}
+        renderItem={(itemData) => <ListElement 
+          goalObj={itemData.item} 
+          setGoalList={setGoalList}/>}
         />
       </View>
     </View>

@@ -1,11 +1,11 @@
-import { Button, Text, View, Platform, Alert, TouchableOpacity } from "react-native";
+import { Text, View, Platform, Alert, Pressable } from "react-native";
 import listStyle from "./ListElementStyles";
 
 const ListElement = ({ goalObj, setGoalList }) => {
     
 function deleteGoalHandler(id) {
     setGoalList((currentGoals) => {
-        return currentGoals.filter((goal) => goal.id !== id);
+        currentGoals.filter((goal) => goal.id !== id);
     });
 }
 
@@ -35,9 +35,10 @@ function showAlertDelete(message, id) {
 return (
     <View style={listStyle.elementContainer}>
         <Text style={listStyle.textColorBlue}>{goalObj.value}</Text>
-        <TouchableOpacity style={listStyle.button}>
+        <Pressable 
+        style={listStyle.button}>
             <Text style={listStyle.textColorRed} onPress={() => showAlertDelete(goalObj.value, goalObj.id)}>Delete</Text>
-        </TouchableOpacity>
+        </Pressable>
     </View>
 );
 }
