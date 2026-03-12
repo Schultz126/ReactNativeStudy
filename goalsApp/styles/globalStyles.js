@@ -12,14 +12,6 @@ const styles = StyleSheet.create({
     gap: 10,
   },
 
-  inputContainer: {
-    display: 'flex',
-    flex: 1,
-    flexDirection: 'row',
-    gap: 15,
-    alignItems: 'center'
-  },
-
   goalsContainer: {
     flex: 5,
     width: '100%',

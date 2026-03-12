@@ -10,8 +10,14 @@ const addButtonStyles = StyleSheet.create({
         borderRadius: 5,
         backgroundColor: 'white'
     },
+
     textColorWhite: {
         color: mainColor
+    },
+
+    buttonContainer: {
+        display: "flex",
+        flexDirection: 'row'
     },
 });
 

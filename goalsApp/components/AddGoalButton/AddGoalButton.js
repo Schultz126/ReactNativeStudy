@@ -1,11 +1,16 @@
-import { Button, TouchableOpacity, Text } from "react-native";
+import { Pressable, Text, View } from "react-native";
 import addButtonStyles from "./AddGoalButtonStyles";
 
-const AddGoalButton = ({text, handleButtonEvent}) => {
+const AddGoalButton = ({text, handleButtonEvent, visibilityHandler}) => {
     return (
-        <TouchableOpacity style={addButtonStyles.button}>
-            <Text style={addButtonStyles.textColorWhite} onPress={() => handleButtonEvent(text)}>Add Item</Text>
-        </TouchableOpacity>
+        <View style={addButtonStyles.buttonContainer}>
+            <Pressable style={addButtonStyles.button}>
+                <Text style={addButtonStyles.textColorWhite} onPress={() => handleButtonEvent(text)}>Add Item</Text>
+            </Pressable>
+            <Pressable style={addButtonStyles.button}>
+                <Text style={addButtonStyles.textColorWhite} onPress={visibilityHandler}>Cancel</Text>
+            </Pressable>
+        </View>
     )
 }
 

@@ -1,13 +1,14 @@
-import { View, ScrollView, FlatList } from 'react-native';
+import { View, FlatList, Pressable } from 'react-native';
 import styles from './styles/globalStyles';
-import AddGoalButton from './components/AddGoalButton/AddGoalButton';
-import GoalInput from './components/GoalInput/GoalInput';
 import ListElement from './components/ListElement/ListElement';
+import InputHeader from './components/InputHeader/InputHeader';
 import { useState } from 'react';
+import ModalVisibilityChanger from './components/ModalVisibilityChanger/ModalVisibilityChanger';
 
 export default function App() {
   const [goal, setGoal] = useState(null);
   const [goalList, setGoalList] = useState([]);
+  const [modalIsVisible, setVisible] = useState(false)
   function textInputHandler(e) {
       setGoal(e);
   }
@@ -23,14 +24,21 @@ export default function App() {
     setGoalList((e) => [...e, newGoal])
     setGoal('')
   };
- 
+
+  function visibilityHandler () {
+    setVisible(!modalIsVisible);
+  }
 
   return (
     <View style={styles.container}>
-      <View style={styles.inputContainer}>
-        <GoalInput textInputHandler={textInputHandler} goal={goal}/>
-        <AddGoalButton text={goal} handleButtonEvent={addGoalHandler}/>
-      </View>
+      {modalIsVisible ? <InputHeader 
+        textInputHandler={textInputHandler}
+        goal={goal}
+        addGoalHandler={addGoalHandler}
+        modalIsVisible={modalIsVisible}
+        visibilityHandler={visibilityHandler}/> : 
+        <ModalVisibilityChanger 
+          visibilityHandler={visibilityHandler}/>}
       <View style={styles.goalsContainer}>
         <FlatList 
         data={goalList}

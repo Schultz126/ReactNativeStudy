@@ -5,7 +5,7 @@ const ListElement = ({ goalObj, setGoalList }) => {
     
 function deleteGoalHandler(id) {
     setGoalList((currentGoals) => {
-        currentGoals.filter((goal) => goal.id !== id);
+        return currentGoals.filter((goal) => goal.id !== id);
     });
 }
 
@@ -14,7 +14,7 @@ function showAlertDelete(message, id) {
         const confirm = window.confirm(`Delete ${message}?`);
         if (confirm) deleteGoalHandler(id);
     } else {
-        Alert.alert(
+        Alert.alert( // Cria um pop-up para cofirmar a deleção do elemento selecionado
             "Delete Item",
             `Are you sure you want to delete "${message}"?`,
             [
