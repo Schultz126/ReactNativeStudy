@@ -1,4 +1,4 @@
-import { View, FlatList, Pressable } from 'react-native';
+import { View, FlatList, Image} from 'react-native';
 import styles from './styles/globalStyles';
 import ListElement from './components/ListElement/ListElement';
 import InputHeader from './components/InputHeader/InputHeader';

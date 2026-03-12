@@ -2,13 +2,17 @@ import { Pressable, Text, View } from "react-native";
 import addButtonStyles from "./AddGoalButtonStyles";
 
 const AddGoalButton = ({text, handleButtonEvent, visibilityHandler}) => {
+    function addButtonHandler() {
+        handleButtonEvent(text);
+        visibilityHandler();
+    }
     return (
         <View style={addButtonStyles.buttonContainer}>
-            <Pressable style={addButtonStyles.button}>
-                <Text style={addButtonStyles.textColorWhite} onPress={() => handleButtonEvent(text)}>Add Item</Text>
+            <Pressable>
+                <Text style={addButtonStyles.addButton} onPress={addButtonHandler}>Add Item</Text>
             </Pressable>
-            <Pressable style={addButtonStyles.button}>
-                <Text style={addButtonStyles.textColorWhite} onPress={visibilityHandler}>Cancel</Text>
+            <Pressable>
+                <Text style={addButtonStyles.cancelButton} onPress={visibilityHandler}>Cancel</Text>
             </Pressable>
         </View>
     )

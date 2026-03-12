@@ -1,7 +1,8 @@
 import { StyleSheet } from "react-native";
 
-const mainColor = '#2B4570'
-const secondaryColor = '#DD1C1A'
+const mainColor = '#E5DCC5'
+const secondaryColor = '#C14953'
+const cancelColor = '#e48088';
 
 const listStyle = StyleSheet.create({
     elementContainer: {
@@ -13,21 +14,19 @@ const listStyle = StyleSheet.create({
         padding: 5,
         paddingBottom: 10,
         borderBottomWidth: 1,
-        borderColor: '#cccccc',
+        borderColor: mainColor,
         borderRadius: 5,
     },
-    textColorBlue: {color: mainColor},
+    textColorWhite: {color: 'white'},
 
-    textColorRed : {color: secondaryColor},
-
-    button: {
+    cancelButton: {
+        color: cancelColor,
+        borderColor: cancelColor,
         paddingVertical: 5,
         paddingHorizontal: 10,
         borderWidth: 1,
-        borderColor: secondaryColor,
         borderRadius: 5,
-        backgroundColor: '#ffffff'
-    }
+    },
 })
 
 export default listStyle

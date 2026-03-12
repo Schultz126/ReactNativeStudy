@@ -1,5 +1,7 @@
 import { StyleSheet } from "react-native";
 
+const mainColor = "#4C4C47";
+
 const styles = StyleSheet.create({
   container: {
     paddingTop: 50,
@@ -10,6 +12,7 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     alignItems: 'center',
     gap: 10,
+    backgroundColor: mainColor
   },
 
   goalsContainer: {

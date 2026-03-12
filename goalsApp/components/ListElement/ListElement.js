@@ -34,10 +34,9 @@ function showAlertDelete(message, id) {
 
 return (
     <View style={listStyle.elementContainer}>
-        <Text style={listStyle.textColorBlue}>{goalObj.value}</Text>
-        <Pressable 
-        style={listStyle.button}>
-            <Text style={listStyle.textColorRed} onPress={() => showAlertDelete(goalObj.value, goalObj.id)}>Delete</Text>
+        <Text style={listStyle.textColorWhite}>{goalObj.value}</Text>
+        <Pressable>
+            <Text style={listStyle.cancelButton} onPress={() => showAlertDelete(goalObj.value, goalObj.id)}>Delete</Text>
         </Pressable>
     </View>
 );

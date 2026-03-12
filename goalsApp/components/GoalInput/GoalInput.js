@@ -6,6 +6,7 @@ const GoalInput = ({textInputHandler, goal}) => {
         <TextInput 
         style={goalStyles.input} 
         placeholder='Enter an item'
+        placeholderTextColor={'#E5DCC5'}
         value={goal}
         onChangeText={(e) => textInputHandler(e)}/>
     )

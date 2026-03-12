@@ -1,9 +1,13 @@
-import { View, Button } from "react-native"
+import { View, Pressable, Text, Image } from "react-native"
+import modalButtonStyle from "./ModalVisibilityChangerStyle"
 
 const ModalVisibilityChanger = ({visibilityHandler}) => {
     return(
     <View>
-        <Button title='Add Goal' onPress={visibilityHandler}></Button>
+        <Image source={require('../../assets/images/fictionalLogoColored.png')} style={modalButtonStyle.logo}/>
+        <Pressable onPress={visibilityHandler} android_ripple={"#cccccc"}>
+            <Text style={modalButtonStyle.button}>Add goal</Text>
+        </Pressable>
     </View> 
     )
 }
