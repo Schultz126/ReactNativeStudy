@@ -1,18 +1,24 @@
-import { View, Text, Pressable, TextInput, ImageBackground } from 'react-native';
+import { 
+	View,
+	TextInput, 
+} from 'react-native';
 import selectStyles from './selectStyles';
+import MainButton from '../../components/mainButton';
+import { useState } from 'react';
 
 const NumberSelectScreen = () => {
+	const [isFocused, setIsFocused] = useState(false);
 	return(
 		<View style={selectStyles.container}>
-			<Text>Select a number</Text>
-			<TextInput />
-			<View>
-			<Pressable>
-				<Text>Confirm</Text>
-			</Pressable>
-			<Pressable>
-				<Text>Cancel</Text>
-			</Pressable>    
+			<TextInput 
+				style={[selectStyles.input, isFocused && selectStyles.inputIsFocused]}
+				onFocus={() => setIsFocused(true)}
+				onBlur={() => setIsFocused(false)}
+				keyboardType='numeric'
+				maxLength={3}/>
+			<View style={selectStyles.buttonContainer}>
+				<MainButton text={'Reset'}/>
+				<MainButton text={'Confirm'}/>
 			</View>
 		</View>
 	)
