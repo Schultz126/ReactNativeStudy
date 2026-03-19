@@ -3,12 +3,16 @@ import {
     Platform 
 } from "react-native";
 
+const primaryWhite = "#F3F4F6";
+const prmaryButtonColor = "#183304";
+const pressedButtonColor = "#1e3e05";
+
 const mainButtonStyles = StyleSheet.create({
   button: {
-    backgroundColor: '#1A1A1A',
+    backgroundColor: prmaryButtonColor,
     paddingVertical: 16,
-    minWidth: 150, 
-    borderRadius: 14,
+    minWidth: '45%', 
+    borderRadius: 30,
     alignItems: 'center',
     justifyContent: 'center',
     alignSelf: 'center', 
@@ -28,11 +32,11 @@ const mainButtonStyles = StyleSheet.create({
     }),
   },
   buttonPressed: {
-    backgroundColor: '#2A2A2A',
-    transform: [{ scale: 0.96 }],
+    backgroundColor: pressedButtonColor,
+    transform: [{ scale: 0.98 }],
   },
   text: {
-    color: '#FFFFFF',
+    color: primaryWhite,
     fontSize: 15,
     fontWeight: '700',
     letterSpacing: -0.2,

@@ -1,19 +1,32 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { 
+  StyleSheet,
+  StatusBar,
+  ImageBackground 
+} from 'react-native';
+import { LinearGradient } from 'expo-linear-gradient';
 import NumberSelectScreen from './screens/NumberSelectScreen/NumberSelectScreen';
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <NumberSelectScreen />
-    </View>
+    <LinearGradient colors={['#766104', '#122404']} style={styles.rootScreen}>
+      <ImageBackground 
+        source={require('./assets/images/background.png')} 
+        resizeMode='cover'
+        style={styles.rootScreen}
+        imageStyle={styles.backgroundImage}>
+        <StatusBar barStyle={'light-content'}/>
+        <NumberSelectScreen />
+      </ImageBackground>
+    </LinearGradient>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
+  rootScreen: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    marginTop: 50
   },
+
+  backgroundImage: {
+    opacity: 0.35 
+  }
 });

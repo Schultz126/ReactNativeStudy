@@ -1,4 +1,7 @@
-import { Pressable, Text } from "react-native";
+import { 
+  Pressable,
+  Text,
+} from "react-native";
 import mainButtonStyles from "./componentStyles/mainButtonStyle";
 
 const MainButton = ({ text, action }) => {

@@ -2,7 +2,8 @@ import {
 	View,
 	TextInput, 
 	Alert,
-	Platform
+	Platform,
+	Keyboard
 } from 'react-native';
 import selectStyles from './selectStyles';
 import MainButton from '../../components/mainButton';
@@ -30,6 +31,7 @@ const NumberSelectScreen = () => {
 	}
 
 	const handleConfirmButton = (testNumber) => {
+		Keyboard.dismiss()
 		if(testNumber === '') return
 		if(testNumber.includes('.') || testNumber.includes(',')) {
 			message(
@@ -44,7 +46,8 @@ const NumberSelectScreen = () => {
 		}
 	}
 	return(
-		<View style={selectStyles.container}>
+		<View style={selectStyles.outContainer}>
+			<View style={selectStyles.container}>
 			<TextInput 
 				style={[selectStyles.input, isFocused && selectStyles.inputIsFocused]}
 				onFocus={() => setIsFocused(true)}
@@ -53,13 +56,14 @@ const NumberSelectScreen = () => {
 				maxLength={3}
 				value={number}
 				onChangeText={(value) => setNumber(value)}/>
-			<View style={selectStyles.buttonContainer}>
-				<MainButton 
-				text={'Reset'}
-				action={() => {setNumber('')}}/>
-				<MainButton 
-				text={'Confirm'}
-				action={() => handleConfirmButton(number)}/>
+				<View style={selectStyles.buttonContainer}>
+					<MainButton 
+						text={'Reset'}
+						action={() => {setNumber('')}}/>
+					<MainButton 
+						text={'Confirm'}
+						action={() => handleConfirmButton(number)}/>
+				</View>
 			</View>
 		</View>
 	)
