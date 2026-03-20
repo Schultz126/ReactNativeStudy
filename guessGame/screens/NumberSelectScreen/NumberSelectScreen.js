@@ -9,13 +9,13 @@ import selectStyles from './selectStyles';
 import MainButton from '../../components/mainButton';
 import { useState } from 'react';
 
-const NumberSelectScreen = () => {
+const NumberSelectScreen = ({userNumberHandler}) => {
 	const [isFocused, setIsFocused] = useState(false);
 	const [number, setNumber] = useState('');
 
 	const message = (title, text) => {
 		if (Platform.OS === 'web') {
-        alert("Invalid Number");
+        alert(title);
 		} else {
 			Alert.alert( // Cria um pop-up para cofirmar a deleção do elemento selecionado
 				title, // Título do pop-up
@@ -33,15 +33,14 @@ const NumberSelectScreen = () => {
 	const handleConfirmButton = (testNumber) => {
 		Keyboard.dismiss()
 		if(testNumber === '') return
-		if(testNumber.includes('.') || testNumber.includes(',')) {
+		if(testNumber.includes('.') || testNumber.includes(',') || testNumber <= 0) {
 			message(
 				"Invalid number",
 				"Only natural numbers are allowed"
 			)
 			setNumber('');
 		} else {
-			setNumber(testNumber);
-			console.log(number);
+			userNumberHandler(testNumber)
 			setNumber('');
 		}
 	}
