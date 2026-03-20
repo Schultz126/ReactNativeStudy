@@ -8,6 +8,7 @@ import {
   SafeAreaView,
 } from 'react-native-safe-area-context';
 import { LinearGradient } from 'expo-linear-gradient';
+import Colors from './util/Colors/Colors';
 import NumberSelectScreen from './screens/NumberSelectScreen/NumberSelectScreen';
 import GameScreen from './screens/GameScreen/GameScreen';
 import GameOverScreen from './screens/GameOverScreen/GameOverScreen';
@@ -23,7 +24,7 @@ export default function App() {
   }
 
   return (
-  <LinearGradient colors={['#766104', '#122404']} style={styles.rootScreen}>
+  <LinearGradient colors={[Colors.darkerPrimary, Colors.darkGreen]} style={styles.rootScreen}>
      <ImageBackground 
         source={require('./assets/images/background.png')} 
         resizeMode='cover'

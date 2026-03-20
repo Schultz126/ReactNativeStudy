@@ -1,14 +1,8 @@
 import {
-    StyleSheet
+    StyleSheet,
+    Platform
 } from 'react-native';
-
-const primary = "#B19206";
-const darkerPrimary = "#766104"
-const secondary = "#6D0D15";
-const darkerSecondary = "#5B0B11";
-const darkGreen = "#122404";
-const primaryWhite = "#F3F4F6";
-const primaryBlack = "#310C1F";
+import Colors from '../../util/Colors/Colors';
 
 const styles = StyleSheet.create({
     gameIO: {
@@ -17,7 +11,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         borderWidth: 5,
         borderRadius: 24,
-        borderColor: primaryBlack,
+        borderColor: Colors.primaryBlack,
         padding: 10,
         backgroundColor: "#00000063"
     },
@@ -25,7 +19,11 @@ const styles = StyleSheet.create({
         display: 'flex',
         flex: 1,
         alignItems: 'center',
-        justifyContent: 'center',
+        ...Platform.select({
+            android: {
+                marginTop: 20
+            }
+        }),
     },
 
     buttonsContainer: {

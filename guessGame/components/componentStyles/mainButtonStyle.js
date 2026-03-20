@@ -2,14 +2,11 @@ import {
     StyleSheet,
     Platform 
 } from "react-native";
-
-const primaryWhite = "#F3F4F6";
-const prmaryButtonColor = "#183304";
-const pressedButtonColor = "#1e3e05";
+import Colors from "../../util/Colors/Colors";
 
 const mainButtonStyles = StyleSheet.create({
   button: {
-    backgroundColor: prmaryButtonColor,
+    backgroundColor: Colors.primaryButtonColor,
     paddingVertical: 16,
     minWidth: '45%', 
     borderRadius: 30,
@@ -32,11 +29,11 @@ const mainButtonStyles = StyleSheet.create({
     }),
   },
   buttonPressed: {
-    backgroundColor: pressedButtonColor,
+    backgroundColor: Colors.pressedButtonColor,
     transform: [{ scale: 0.98 }],
   },
   text: {
-    color: primaryWhite,
+    color: Colors.primaryWhite,
     fontSize: 15,
     fontWeight: '700',
     letterSpacing: -0.2,
