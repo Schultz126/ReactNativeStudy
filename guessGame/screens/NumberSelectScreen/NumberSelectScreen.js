@@ -1,34 +1,16 @@
 import { 
 	View,
 	TextInput, 
-	Alert,
-	Platform,
 	Keyboard
 } from 'react-native';
 import selectStyles from './selectStyles';
 import MainButton from '../../components/mainButton';
 import { useState } from 'react';
+import message from '../../util/Message/message';
 
 const NumberSelectScreen = ({userNumberHandler}) => {
 	const [isFocused, setIsFocused] = useState(false);
 	const [number, setNumber] = useState('');
-
-	const message = (title, text) => {
-		if (Platform.OS === 'web') {
-        alert(title);
-		} else {
-			Alert.alert( // Cria um pop-up para cofirmar a deleção do elemento selecionado
-				title, // Título do pop-up
-				text,
-				[
-					{ 
-						text: 'Ok', 
-						style: 'cancel' 
-					},
-				] // Vetor dos botões do alert
-			);
-		}
-	}
 
 	const handleConfirmButton = (testNumber) => {
 		Keyboard.dismiss()
