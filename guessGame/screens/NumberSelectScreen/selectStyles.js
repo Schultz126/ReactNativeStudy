@@ -25,7 +25,7 @@ const selectStyles = StyleSheet.create({
         borderRadius: 8, 
         padding: 10,
         backgroundColor: darkGreen,
-        height: 170,
+        height: 180,
 
         ...Platform.select({
             ios: {
@@ -64,6 +64,7 @@ const selectStyles = StyleSheet.create({
         flexDirection: 'row',
         gap: 5,
     },
+
     outContainer: {
     flex: 1,
     alignItems: 'center',
@@ -73,7 +74,8 @@ const selectStyles = StyleSheet.create({
 
   subtitle: {
     color: Colors.darkerPrimary,
-    marginTop: 2
+    marginTop: 2,
+    fontSize: 24
   }
 })
 

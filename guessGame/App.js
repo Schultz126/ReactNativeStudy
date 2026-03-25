@@ -32,10 +32,10 @@ export default function App() {
   let screen = <NumberSelectScreen userNumberHandler={pickedNumberHandler} />;
 
   if (gameIsOver) {
-    screen = <GameOverScreen />;
+    screen = <GameOverScreen setGameIsOver={setGameIsOver} setUserNumber={setUserNumber}/>;
   } 
   // 2. Otherwise, if we have a number, we are playing
-  else if (userNumber) {
+  else if (userNumber && !gameIsOver) {
     screen = <GameScreen userNumber={userNumber} onGameOver={gameOverHandler} />;
   }
 
