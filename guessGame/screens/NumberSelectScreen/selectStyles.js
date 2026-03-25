@@ -4,14 +4,6 @@ import {
  } from "react-native";
 import Colors from "../../util/Colors/Colors";
 
-const primary = "#B19206";
-const darkerPrimary = "#766104"
-const secondary = "#6D0D15";
-const darkerSecondary = "#5B0B11";
-const darkGreen = "#122404";
-const primaryWhite = "#F3F4F6";
-const primaryBlack = "#310C1F";
-
 const selectStyles = StyleSheet.create({
     container: {
         display: 'flex',
@@ -24,7 +16,7 @@ const selectStyles = StyleSheet.create({
         borderColor: '#00000043',
         borderRadius: 8, 
         padding: 10,
-        backgroundColor: darkGreen,
+        backgroundColor: Colors.darkGreen,
         height: 180,
 
         ...Platform.select({
@@ -43,12 +35,12 @@ const selectStyles = StyleSheet.create({
     input: {
         height: 50,
         borderBottomWidth: 1,
-        borderColor: primary,
+        borderColor: Colors.primary,
         borderRadius: 4,
         paddingHorizontal: 15,
         fontSize: 16,
         minWidth: '40%',
-        color: primary,
+        color: Colors.primary,
         fontWeight: 'bold',
         fontSize: 25,
         textAlign: 'center',
@@ -56,7 +48,7 @@ const selectStyles = StyleSheet.create({
 
     inputIsFocused: {
         borderBottomWidth: 2,
-        borderColor: darkerPrimary,
+        borderColor: Colors.darkerPrimary,
     },
 
     buttonContainer: {
@@ -75,7 +67,8 @@ const selectStyles = StyleSheet.create({
   subtitle: {
     color: Colors.darkerPrimary,
     marginTop: 2,
-    fontSize: 24
+    fontSize: 24,
+    fontFamily: 'open-sans'
   }
 })
 

@@ -18,14 +18,16 @@ export default Title
 
 const styles = StyleSheet.create({
     border: {
-        borderWidth: 2,
+        borderWidth: 4,
         borderColor: Colors.primaryWhite,
         padding: 10,
-        borderRadius: 5
+        borderRadius: 5,
+        backgroundColor: Colors.darkerPrimaryTransparent
     },
 
     textStyle: {
         color: Colors.primaryWhite,
-        fontSize: 22
+        fontSize: 22,
+        fontFamily: 'open-sans-bold'
     }
 })

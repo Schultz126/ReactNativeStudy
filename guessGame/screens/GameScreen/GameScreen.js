@@ -6,10 +6,12 @@ import {
     useState,
     useEffect 
 } from 'react';
+import { useFonts } from 'expo-font'
 import styles from './gameScreenStyles';
 import MainButton from '../../components/mainButton';
 import OpponentsGuess from '../../components/OpponentsGuess';
 import message from '../../util/Message/message';
+import { Ionicons } from '@expo/vector-icons'
 
 
 function generateRandomBetween(min, max, exclude) { // Auxiliary function outside of the component so it does not re-render
@@ -72,8 +74,8 @@ const GameScreen = ({userNumber, onGameOver, numberOfGuesses}) => {
             <View style={styles.gameIO}>
                 <OpponentsGuess machineNumber={guessedNumber}/>
                 <View style={styles.buttonsContainer}>
-                    <MainButton text={"Lower"} action={() => changeBotNumber(0)}/>
-                    <MainButton text={"Higher"} action={() => changeBotNumber(1)}/>
+                    <MainButton text={<Ionicons name="remove" size={24}/>} action={() => changeBotNumber(0)}/>
+                    <MainButton text={<Ionicons name="add" size={24}/>} action={() => changeBotNumber(1)}/>
                 </View>
             </View>
         </View>
