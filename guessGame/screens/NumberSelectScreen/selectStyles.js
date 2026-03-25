@@ -2,6 +2,7 @@ import {
     StyleSheet,
     Platform
  } from "react-native";
+import Colors from "../../util/Colors/Colors";
 
 const primary = "#B19206";
 const darkerPrimary = "#766104"
@@ -24,7 +25,7 @@ const selectStyles = StyleSheet.create({
         borderRadius: 8, 
         padding: 10,
         backgroundColor: darkGreen,
-        height: 150,
+        height: 170,
 
         ...Platform.select({
             ios: {
@@ -50,7 +51,7 @@ const selectStyles = StyleSheet.create({
         color: primary,
         fontWeight: 'bold',
         fontSize: 25,
-        textAlign: 'center'
+        textAlign: 'center',
     },
 
     inputIsFocused: {
@@ -66,8 +67,14 @@ const selectStyles = StyleSheet.create({
     outContainer: {
     flex: 1,
     alignItems: 'center',
-    marginTop: 50,
+    marginTop: 70,
+    gap: 20
   },
+
+  subtitle: {
+    color: Colors.darkerPrimary,
+    marginTop: 2
+  }
 })
 
 export default selectStyles

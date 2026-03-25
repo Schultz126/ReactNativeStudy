@@ -1,12 +1,14 @@
 import { 
 	View,
 	TextInput, 
-	Keyboard
+	Keyboard,
+	Text
 } from 'react-native';
 import selectStyles from './selectStyles';
 import MainButton from '../../components/mainButton';
 import { useState } from 'react';
 import message from '../../util/Message/message';
+import Title from '../../components/Title';
 
 const NumberSelectScreen = ({userNumberHandler}) => {
 	const [isFocused, setIsFocused] = useState(false);
@@ -28,13 +30,15 @@ const NumberSelectScreen = ({userNumberHandler}) => {
 	}
 	return(
 		<View style={selectStyles.outContainer}>
+			<Title>Guess My Number</Title>
 			<View style={selectStyles.container}>
+			<Text style={selectStyles.subtitle}>Enter a number</Text>
 			<TextInput 
 				style={[selectStyles.input, isFocused && selectStyles.inputIsFocused]}
 				onFocus={() => setIsFocused(true)}
 				onBlur={() => setIsFocused(false)}
 				keyboardType='numeric'
-				maxLength={3}
+				maxLength={2}
 				value={number}
 				onChangeText={(value) => setNumber(value)}/>
 				<View style={selectStyles.buttonContainer}>

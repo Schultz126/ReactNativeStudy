@@ -3,7 +3,8 @@ import {
 } from 'react-native';
 import { 
     useRef, 
-    useState 
+    useState,
+    useEffect 
 } from 'react';
 import styles from './gameScreenStyles';
 import MainButton from '../../components/mainButton';
@@ -30,31 +31,41 @@ function lyingMessage() {
     )
 }
 
-const GameScreen = ({userNumber}) => {
+const GameScreen = ({userNumber, onGameOver}) => {
     const min = useRef(1)
-    const max = useRef(1000)
+    const max = useRef(100)
+    const numberOfGuesses = useRef(0)
     const initialGuess = generateRandomBetween(min.current, max.current, userNumber)
     const [guessedNumber, setGuessedNumber] = useState(initialGuess)
+
+    useEffect(() => {
+        if(guessedNumber == userNumber) { // Use == no lugar de ===, pq o número do usuário é uma string e o da máquina um int
+            onGameOver()
+        }
+    },[guessedNumber, userNumber, onGameOver])
 
     const changeBotNumber = (input) => {
     switch(input) {
         case 0: // botão "Lower" foi selecionado
             if(userNumber > guessedNumber) {
                 lyingMessage()
+                return;
             } else {
-                max.current = guessedNumber
-                setGuessedNumber(generateRandomBetween(min.current, max.current, 0))
+                max.current = guessedNumber - 1
             }
             break
         case 1: // botão "Higher" foi selecionado
             if(userNumber < guessedNumber) {
                 lyingMessage()
+                return;
             } else {
-                min.current = guessedNumber
-                setGuessedNumber(generateRandomBetween(min.current, max.current, 0))
+                min.current = guessedNumber + 1   
             }
             break
     }
+    setGuessedNumber(generateRandomBetween(min.current, max.current, guessedNumber))
+    numberOfGuesses.current += 1
+    console.log(numberOfGuesses.current)
 }
     
     return(

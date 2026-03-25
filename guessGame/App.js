@@ -1,8 +1,9 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { 
   StyleSheet,
   StatusBar,
-  ImageBackground, 
+  ImageBackground,
+  View 
 } from 'react-native';
 import {
   SafeAreaView,
@@ -15,17 +16,33 @@ import GameOverScreen from './screens/GameOverScreen/GameOverScreen';
 
 export default function App() {
   const [userNumber, setUserNumber] = useState(null);
-  const pickedNumberHandler = (pickedNuber) => {
-    setUserNumber(pickedNuber);
+  const [gameIsOver, setGameIsOver] = useState(false);
+
+  // Logic to switch screens
+  function pickedNumberHandler(pickedNumber) {
+    setUserNumber(pickedNumber);
+    setGameIsOver(false);
   }
-  let screen = <NumberSelectScreen userNumberHandler={pickedNumberHandler}/>
-  if(userNumber) {
-    screen = <GameScreen userNumber={userNumber}/>
+
+  function gameOverHandler() {
+    setGameIsOver(true);
+  }
+
+  // Determine which component to show
+  let screen = <NumberSelectScreen userNumberHandler={pickedNumberHandler} />;
+
+  if (gameIsOver) {
+    screen = <GameOverScreen />;
+  } 
+  // 2. Otherwise, if we have a number, we are playing
+  else if (userNumber) {
+    screen = <GameScreen userNumber={userNumber} onGameOver={gameOverHandler} />;
   }
 
   return (
-  <LinearGradient colors={[Colors.darkerPrimary, Colors.darkGreen]} style={styles.rootScreen}>
-     <ImageBackground 
+    <View style={styles.rootContainer}>
+      <LinearGradient colors={[Colors.darkerPrimary, Colors.darkGreen]} style={styles.rootScreen}>
+      <ImageBackground 
         source={require('./assets/images/background.png')} 
         resizeMode='cover'
         style={styles.rootScreen}
@@ -36,6 +53,8 @@ export default function App() {
         </SafeAreaView>
       </ImageBackground>
     </LinearGradient>
+    </View>
+    
   );
 }
 
@@ -46,5 +65,10 @@ const styles = StyleSheet.create({
 
   backgroundImage: {
     opacity: 0.35 
+  },
+
+  rootContainer: {
+    flex: 1,
+    backgroundColor: '#000000'
   }
 });
