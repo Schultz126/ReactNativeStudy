@@ -31,10 +31,9 @@ function lyingMessage() {
     )
 }
 
-const GameScreen = ({userNumber, onGameOver}) => {
+const GameScreen = ({userNumber, onGameOver, numberOfGuesses}) => {
     const min = useRef(1)
     const max = useRef(100)
-    const numberOfGuesses = useRef(0)
     const initialGuess = generateRandomBetween(min.current, max.current, userNumber)
     const [guessedNumber, setGuessedNumber] = useState(initialGuess)
 

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { 
   StyleSheet,
   StatusBar,
@@ -8,6 +8,7 @@ import {
 import {
   SafeAreaView,
 } from 'react-native-safe-area-context';
+import { useRef } from 'react';
 import { LinearGradient } from 'expo-linear-gradient';
 import Colors from './util/Colors/Colors';
 import NumberSelectScreen from './screens/NumberSelectScreen/NumberSelectScreen';
@@ -17,6 +18,7 @@ import GameOverScreen from './screens/GameOverScreen/GameOverScreen';
 export default function App() {
   const [userNumber, setUserNumber] = useState(null);
   const [gameIsOver, setGameIsOver] = useState(false);
+  const numberOfGuesses = useRef(0)
 
   // Logic to switch screens
   function pickedNumberHandler(pickedNumber) {
@@ -32,11 +34,11 @@ export default function App() {
   let screen = <NumberSelectScreen userNumberHandler={pickedNumberHandler} />;
 
   if (gameIsOver) {
-    screen = <GameOverScreen setGameIsOver={setGameIsOver} setUserNumber={setUserNumber}/>;
+    screen = <GameOverScreen setGameIsOver={setGameIsOver} setUserNumber={setUserNumber} numberOfGuesses={numberOfGuesses}/>;
   } 
   // 2. Otherwise, if we have a number, we are playing
   else if (userNumber && !gameIsOver) {
-    screen = <GameScreen userNumber={userNumber} onGameOver={gameOverHandler} />;
+    screen = <GameScreen userNumber={userNumber} onGameOver={gameOverHandler} numberOfGuesses={numberOfGuesses}/>;
   }
 
   return (

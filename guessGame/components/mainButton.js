@@ -1,6 +1,7 @@
 import { 
   Pressable,
   Text,
+  StyleSheet
 } from "react-native";
 import mainButtonStyles from "./componentStyles/mainButtonStyle";
 
