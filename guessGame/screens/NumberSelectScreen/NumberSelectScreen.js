@@ -38,7 +38,7 @@ const NumberSelectScreen = ({userNumberHandler}) => {
 				onFocus={() => setIsFocused(true)}
 				onBlur={() => setIsFocused(false)}
 				keyboardType='numeric'
-				maxLength={2}
+				maxLength={3}
 				value={number}
 				onChangeText={(value) => setNumber(value)}/>
 				<View style={selectStyles.buttonContainer}>

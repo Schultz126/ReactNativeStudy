@@ -1,12 +1,13 @@
 import { 
     View,
+    FlatList
 } from 'react-native';
 import { 
     useRef, 
     useState,
     useEffect 
 } from 'react';
-import { useFonts } from 'expo-font'
+import GuessedRound from '../../components/GuessedRound';
 import styles from './gameScreenStyles';
 import MainButton from '../../components/mainButton';
 import OpponentsGuess from '../../components/OpponentsGuess';
@@ -35,9 +36,10 @@ function lyingMessage() {
 
 const GameScreen = ({userNumber, onGameOver, numberOfGuesses}) => {
     const min = useRef(1)
-    const max = useRef(100)
+    const max = useRef(1000)
     const initialGuess = generateRandomBetween(min.current, max.current, userNumber)
     const [guessedNumber, setGuessedNumber] = useState(initialGuess)
+    const [guessedRounds, setGuessedRounds] = useState([initialGuess])
 
     useEffect(() => {
         if(guessedNumber == userNumber) { // Use == no lugar de ===, pq o número do usuário é uma string e o da máquina um int
@@ -64,9 +66,10 @@ const GameScreen = ({userNumber, onGameOver, numberOfGuesses}) => {
             }
             break
     }
-    setGuessedNumber(generateRandomBetween(min.current, max.current, guessedNumber))
+    const newGuess = generateRandomBetween(min.current, max.current, guessedNumber)
+    setGuessedNumber(newGuess)
     numberOfGuesses.current += 1
-    console.log(numberOfGuesses.current)
+    setGuessedRounds((prevNums) => [newGuess, ...prevNums])
 }
     
     return(
@@ -77,6 +80,15 @@ const GameScreen = ({userNumber, onGameOver, numberOfGuesses}) => {
                     <MainButton text={<Ionicons name="remove" size={24}/>} action={() => changeBotNumber(0)}/>
                     <MainButton text={<Ionicons name="add" size={24}/>} action={() => changeBotNumber(1)}/>
                 </View>
+            </View>
+            <View style={styles.roundsContainer}>
+                <FlatList 
+                    data={guessedRounds}
+                    renderItem={(itemData) => 
+                        <GuessedRound 
+                            round={guessedRounds.length - itemData.index} 
+                            number={itemData.item}/>}
+                />
             </View>
         </View>
     )

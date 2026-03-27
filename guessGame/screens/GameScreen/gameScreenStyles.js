@@ -30,7 +30,13 @@ const styles = StyleSheet.create({
         display: 'flex',
         flexDirection: 'row',
         gap: 15
-    }
+    },
+
+    roundsContainer: {
+        flex: 1,
+        padding: 16,
+        flexDirection: 'column'
+    },
 })
 
 export default styles

@@ -15,7 +15,6 @@ import Colors from './util/Colors/Colors';
 import NumberSelectScreen from './screens/NumberSelectScreen/NumberSelectScreen';
 import GameScreen from './screens/GameScreen/GameScreen';
 import GameOverScreen from './screens/GameOverScreen/GameOverScreen';
-import AppLoading from 'expo-app-loading';
 
 export default function App() {
   const [userNumber, setUserNumber] = useState(null);
@@ -26,10 +25,6 @@ export default function App() {
     'open-sans': require('./assets/fonts/OpenSans-Regular.ttf'),
     'open-sans-bold': require('./assets/fonts/OpenSans-Bold.ttf')
   })
-
-  if(!fontsLoaded) {
-    return <AppLoading/>
-  }
 
   // Logic to switch screens
   function pickedNumberHandler(pickedNumber) {
