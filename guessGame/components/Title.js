@@ -1,14 +1,17 @@
 import {
     Text,
     View,
-    StyleSheet
+    StyleSheet,
+    Dimensions,
+    useWindowDimensions // Dimensions API can get all kinds of properties from the device the app is running
 } from 'react-native';
 
 import Colors from '../util/Colors/Colors';
 
 const Title = ({children}) => {
+    const {height, width } = useWindowDimensions()
     return(
-        <View style={styles.border}>
+        <View style={[styles.border, height > width ? styles.portrait : styles.landscape]}>
             <Text style={styles.textStyle}>{children}</Text>
         </View>
     )
@@ -16,13 +19,23 @@ const Title = ({children}) => {
 
 export default Title
 
+const deviceProperties = Dimensions.get('window') // The main reason to use the Dimensions API is to build adaptive apps
+
 const styles = StyleSheet.create({
     border: {
-        borderWidth: 4,
+        borderWidth: 2,
         borderColor: Colors.primaryWhite,
-        padding: 10,
         borderRadius: 5,
-        backgroundColor: Colors.darkerPrimaryTransparent
+        backgroundColor: Colors.darkerPrimaryTransparent,
+        maxWidth: '80%'
+    },
+    
+    portrait: {
+        padding: '4.5%'
+    },
+
+    landscape: {
+        padding: '2%',
     },
 
     textStyle: {

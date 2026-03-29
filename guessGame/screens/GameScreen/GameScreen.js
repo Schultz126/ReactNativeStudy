@@ -1,6 +1,7 @@
 import { 
     View,
-    FlatList
+    FlatList,
+    useWindowDimensions
 } from 'react-native';
 import { 
     useRef, 
@@ -40,6 +41,7 @@ const GameScreen = ({userNumber, onGameOver, numberOfGuesses}) => {
     const initialGuess = generateRandomBetween(min.current, max.current, userNumber)
     const [guessedNumber, setGuessedNumber] = useState(initialGuess)
     const [guessedRounds, setGuessedRounds] = useState([initialGuess])
+    const {width, height} = useWindowDimensions()
 
     useEffect(() => {
         if(guessedNumber == userNumber) { // Use == no lugar de ===, pq o número do usuário é uma string e o da máquina um int

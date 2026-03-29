@@ -14,6 +14,27 @@ const styles = StyleSheet.create({
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
+        borderBottomWidth: 5,
+        borderRadius: 6,
+        borderColor: Colors.primaryWhite,
+    },
+
+    guessedNumberContainerLandscape: {
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        height: 50,
+        width: 200,
+        borderBottomWidth: 3,
+        borderRadius: 6,
+        borderColor: Colors.primaryWhite,
+        marginBottom: 10,
+    },
+
+    guessedNumberContainerPortrait: {
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
         height: 100,
         width: 200,
         borderBottomWidth: 5,
@@ -24,16 +45,30 @@ const styles = StyleSheet.create({
 
     guessedNumber: {
         fontWeight: 'bold',
-        fontSize: 32,
         color: Colors.primaryWhite
+    },
+
+    guessedNumberLandscape: {
+        fontSize: 24,
+    },
+
+    guessedNumberPortrait: {
+        fontSize: 32,
     },
 
     title: {
         color: Colors.primary,
         textAlign: 'center',
-        fontSize: 25,
         fontFamily: 'Roboto',
         fontWeight: 'bold',
+    },
+
+    titlePortrait: {
+        fontSize: 25,
+    },
+
+    titleLandscape: {
+        fontSize: 24,
     }
 })
 

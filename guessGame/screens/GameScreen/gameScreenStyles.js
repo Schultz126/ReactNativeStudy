@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         ...Platform.select({
             android: {
-                marginTop: 20
+                marginTop: 10
             }
         }),
     },

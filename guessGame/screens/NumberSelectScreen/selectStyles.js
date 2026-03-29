@@ -1,6 +1,6 @@
 import { 
     StyleSheet,
-    Platform
+    Platform,
  } from "react-native";
 import Colors from "../../util/Colors/Colors";
 
@@ -60,6 +60,15 @@ const selectStyles = StyleSheet.create({
     outContainer: {
     flex: 1,
     alignItems: 'center',
+  
+  },
+
+  outLandscape: {
+    marginTop: 20,
+    gap: 10
+  },
+
+  outPortrait: {
     marginTop: 70,
     gap: 20
   },
