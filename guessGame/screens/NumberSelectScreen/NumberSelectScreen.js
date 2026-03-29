@@ -3,7 +3,9 @@ import {
 	TextInput, 
 	Keyboard,
 	Text,
-	useWindowDimensions
+	useWindowDimensions,
+	KeyboardAvoidingView,
+	ScrollView
 } from 'react-native';
 import selectStyles from './selectStyles';
 import MainButton from '../../components/mainButton';
@@ -31,28 +33,32 @@ const NumberSelectScreen = ({userNumberHandler}) => {
 		}
 	}
 	return(
-		<View style={[selectStyles.outContainer, height > width ? selectStyles.outPortrait : selectStyles.outLandscape]}>
-			<Title>Guess My Number</Title>
-			<View style={selectStyles.container}>
-			<Text style={selectStyles.subtitle}>Enter a number</Text>
-			<TextInput 
-				style={[selectStyles.input, isFocused && selectStyles.inputIsFocused]}
-				onFocus={() => setIsFocused(true)}
-				onBlur={() => setIsFocused(false)}
-				keyboardType='numeric'
-				maxLength={3}
-				value={number}
-				onChangeText={(value) => setNumber(value)}/>
-				<View style={selectStyles.buttonContainer}>
-					<MainButton 
-						text={'Reset'}
-						action={() => {setNumber('')}}/>
-					<MainButton 
-						text={'Confirm'}
-						action={() => handleConfirmButton(number)}/>
+		<ScrollView style={selectStyles.scrollOut}>
+			<KeyboardAvoidingView style={selectStyles.keyboardAvoStyles} behavior='position'>
+				<View style={[selectStyles.outContainer, height > width ? selectStyles.outPortrait : selectStyles.outLandscape]}> 
+					<Title>Guess My Number</Title>
+					<View style={selectStyles.container}>
+					<Text style={selectStyles.subtitle}>Enter a number</Text>
+					<TextInput 
+						style={[selectStyles.input, isFocused && selectStyles.inputIsFocused]}
+						onFocus={() => setIsFocused(true)}
+						onBlur={() => setIsFocused(false)}
+						keyboardType='numeric'
+						maxLength={3}
+						value={number}
+						onChangeText={(value) => setNumber(value)}/>
+						<View style={selectStyles.buttonContainer}>
+							<MainButton 
+								text={'Reset'}
+								action={() => {setNumber('')}}/>
+							<MainButton 
+								text={'Confirm'}
+								action={() => handleConfirmButton(number)}/>
+						</View>
+					</View>
 				</View>
-			</View>
-		</View>
+			</KeyboardAvoidingView>
+		</ScrollView>
 	)
 }
 

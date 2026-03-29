@@ -65,7 +65,6 @@ const selectStyles = StyleSheet.create({
 
   outLandscape: {
     marginTop: 20,
-    gap: 10
   },
 
   outPortrait: {
@@ -78,6 +77,15 @@ const selectStyles = StyleSheet.create({
     marginTop: 2,
     fontSize: 24,
     fontFamily: 'open-sans'
+  },
+  
+  keyboardAvoStyles: {
+    flex: 1
+  },
+
+  scrollOut: {
+    flex: 1,
+    marginTop: '1%'
   }
 })
 
