@@ -49,6 +49,7 @@ export default function App() {
 
   return (
     <View style={styles.rootContainer}>
+      <StatusBar barStyle={'light-content'}/>
       <LinearGradient colors={[Colors.darkerPrimary, Colors.darkGreen]} style={styles.rootScreen}>
       <ImageBackground 
         source={require('./assets/images/background.png')} 
@@ -56,7 +57,6 @@ export default function App() {
         style={styles.rootScreen}
         imageStyle={styles.backgroundImage}>
         <SafeAreaView style={styles.rootScreen}>
-          <StatusBar barStyle={'light-content'}/>
           {screen}
         </SafeAreaView>
       </ImageBackground>
