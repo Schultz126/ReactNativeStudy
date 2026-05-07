@@ -1,7 +1,7 @@
 import { View, Pressable, Text } from "react-native";
 import style from "./EDCstyle";
 
-const ElementoDaCategoria = ({ title, color, onPress }) => {
+const CategoryGridElement = ({ title, color, onPress }) => {
   return (
     <View style={[style.gridItem]}>
       <Pressable
@@ -20,4 +20,4 @@ const ElementoDaCategoria = ({ title, color, onPress }) => {
   );
 };
 
-export default ElementoDaCategoria;
+export default CategoryGridElement;
