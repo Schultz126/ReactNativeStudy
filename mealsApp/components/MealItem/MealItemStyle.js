@@ -8,7 +8,7 @@ const style = StyleSheet.create({
     padding: "1%",
     alignSelf: "center",
     margin: "2%",
-    backgroundColor: "white",
+    backgroundColor: "#eee",
     overflow: "hidden",
     ...Platform.select({
       ios: {
@@ -23,7 +23,15 @@ const style = StyleSheet.create({
     }),
   },
 
-  innerText: {},
+  innerText: {
+    textAlign: "center",
+    fontWeight: "bold",
+  },
+  image: {
+    width: "100%",
+    height: 150,
+    borderRadius: 4,
+  },
 });
 
 export default style;
