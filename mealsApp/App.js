@@ -4,6 +4,7 @@ import CategoriesScreen from "./screens/CategoryScreen/CategoriesScreen";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack"; // Esta é apenas uma forma de navegar. Existem outras formas
 import MealsOverview from "./screens/MealsOverview/MealsOverview";
+import MealInfoScreen from "./screens/MealInfoScreen/MealInfoScreen";
 
 const Stack = createNativeStackNavigator();
 
@@ -14,7 +15,7 @@ export default function App() {
       <NavigationContainer>
         <Stack.Navigator
           screenOptions={{
-            animation: "slide_from_right",
+            animation: "fade",
             contentStyle: {
               backgroundColor: "#fff",
             },
@@ -25,18 +26,19 @@ export default function App() {
             component={CategoriesScreen}
             options={{
               title: "Categorias",
-              animation: "fade",
             }}
           />
 
           <Stack.Screen
             name="Meal Overview"
             component={MealsOverview}
-            options={{
-              title: "Pratos",
-              animation: "slide_from_right",
+            options={({ route, navigation }) => {
+              const cID = route.params.categoryId;
+              return {};
             }}
           />
+
+          <Stack.Screen name="Meal Info" component={MealInfoScreen} />
         </Stack.Navigator>
       </NavigationContainer>
     </>

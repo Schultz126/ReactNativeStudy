@@ -5,6 +5,7 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 16,
     marginBottom: 25,
+    overflow: "visible",
   },
 });
 
