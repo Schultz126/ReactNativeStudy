@@ -27,6 +27,7 @@ const CategoriesScreen = ({ navigation }) => {
       }}
       renderItem={renderCategoryItem}
       numColumns={2}
+      style={style.screenContainer}
     />
   );
 };

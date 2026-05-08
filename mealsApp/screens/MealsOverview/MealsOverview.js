@@ -12,7 +12,13 @@ const MealsOverview = ({ route }) => {
 
   function renderMealItem(itemData) {
     return (
-      <MealItem title={itemData.item.title} imageUrl={itemData.item.imageUrl} />
+      <MealItem
+        title={itemData.item.title}
+        imageUrl={itemData.item.imageUrl}
+        complexity={itemData.item.complexity}
+        duration={itemData.item.duration}
+        affordability={itemData.item.affordability}
+      />
     );
   }
 

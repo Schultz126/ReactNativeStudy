@@ -4,6 +4,7 @@ const styles = StyleSheet.create({
   outerContainer: {
     flex: 1,
     padding: 16,
+    marginBottom: 25,
   },
 });
 

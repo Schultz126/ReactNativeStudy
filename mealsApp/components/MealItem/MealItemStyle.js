@@ -6,9 +6,10 @@ const style = StyleSheet.create({
     borderRadius: 4,
     width: "95%",
     padding: "1%",
+    paddingBottom: "3%",
     alignSelf: "center",
     margin: "2%",
-    backgroundColor: "#eee",
+    backgroundColor: "#e6e6e6",
     overflow: "hidden",
     ...Platform.select({
       ios: {
@@ -18,7 +19,7 @@ const style = StyleSheet.create({
         shadowRadius: 8,
       },
       android: {
-        elevation: 1,
+        elevation: 4,
       },
     }),
   },
@@ -26,11 +27,30 @@ const style = StyleSheet.create({
   innerText: {
     textAlign: "center",
     fontWeight: "bold",
+    textDecorationLine: "underline",
   },
   image: {
     width: "100%",
     height: 150,
     borderRadius: 4,
+  },
+
+  textAffordable: { color: "rgb(84, 162, 0)" },
+
+  textLuxurious: { color: "rgb(188, 0, 0)" },
+
+  infoContainer: {
+    flex: 1,
+    flexDirection: "row",
+    justifyContent: "space-evenly",
+  },
+
+  infoText: {
+    fontSize: 12,
+  },
+
+  pressedButton: {
+    opacity: 0.7,
   },
 });
 
