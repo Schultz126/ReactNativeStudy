@@ -8,6 +8,7 @@ const MealsOverview = ({ route, navigation }) => {
   const cId = route.params.cID;
 
   const displayedMeals = MEALS.filter((meal) => {
+    // Retorna os alimentos correspondentes ao id passado
     return meal.categoryIds.indexOf(cId) >= 0;
   });
 
@@ -25,6 +26,7 @@ const MealsOverview = ({ route, navigation }) => {
   function renderMealItem(itemData) {
     return (
       <MealItem
+        id={itemData.item.id}
         title={itemData.item.title}
         imageUrl={itemData.item.imageUrl}
         complexity={itemData.item.complexity}

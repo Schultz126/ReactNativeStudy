@@ -2,11 +2,20 @@ import { View, Text, Pressable, Image } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import style from "./MealItemStyle";
 
-const MealItem = ({ title, imageUrl, duration, complexity, affordability }) => {
-  const navigation = useNavigation(); // useNavigation fixes navigation prop issue
+const MealItem = ({
+  id,
+  title,
+  imageUrl,
+  duration,
+  complexity,
+  affordability,
+}) => {
+  const navigation = useNavigation(); // useNavigation é necessário pois este componente não é uma tela
 
   function pressHandler() {
-    navigation.navigate("Meal Info");
+    navigation.navigate("Meal Info", {
+      id: id,
+    });
   }
   return (
     <View style={style.mealContainer}>
