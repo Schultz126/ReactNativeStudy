@@ -1,11 +1,18 @@
 import { Pressable, Text } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { useState } from "react";
+import { MEALS } from "../../data/dummie_data";
 
-const FavoriteButton = ({ onPress }) => {
-  const [pressed, setPressed] = useState(false);
+const FavoriteButton = ({ onPress, isFavorite, id }) => {
+  const [pressed, setPressed] = useState(isFavorite);
   function changeIcon() {
-    setPressed(!pressed);
+    const nextState = !pressed; // Calculate the new value first
+    setPressed(nextState);
+
+    const selectedMeal = MEALS.find((meal) => meal.id === id);
+    if (selectedMeal) {
+      selectedMeal.isFavorite = nextState; // Use the calculated value
+    }
   }
 
   function handlePress() {

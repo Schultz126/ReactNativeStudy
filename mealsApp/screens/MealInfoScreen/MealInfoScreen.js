@@ -19,7 +19,13 @@ const MealInfoScreen = ({ route, navigation }) => {
         fontSize: 18,
       },
       headerRight: () => {
-        return <FavoriteButton onPress={() => console.log("Pressed")} />;
+        return (
+          <FavoriteButton
+            onPress={() => console.log("Pressed")}
+            isFavorite={displayedMeal.isFavorite}
+            id={id}
+          />
+        );
       },
     });
   }, [displayedMeal, navigation]);

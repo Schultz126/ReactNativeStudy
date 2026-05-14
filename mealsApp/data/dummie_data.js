@@ -14,7 +14,7 @@ export const CATEGORIES = [
   new Category("c10", "Summer", "#47fced"),
 ];
 
-export const MEALS = [
+export let MEALS = [
   new Meal(
     "m1",
     ["c1", "c2"],
@@ -44,6 +44,7 @@ export const MEALS = [
     true,
     true,
     true,
+    false,
   ),
 
   new Meal(
@@ -66,6 +67,7 @@ export const MEALS = [
       "Layer ham, the pineapple and cheese on the white bread",
       "Bake the toast for round about 10 minutes in the oven at 200°C",
     ],
+    false,
     false,
     false,
     false,
@@ -99,6 +101,7 @@ export const MEALS = [
     false,
     false,
     true,
+    false,
   ),
 
   new Meal(
@@ -128,6 +131,7 @@ export const MEALS = [
       "Remove, and drain on kitchen paper. Fry the parsley in the remaining oil and drain.",
       "Place the schnitzels on awarmed plate and serve garnishedwith parsley and slices of lemon.",
     ],
+    false,
     false,
     false,
     false,
@@ -164,6 +168,7 @@ export const MEALS = [
     false,
     true,
     true,
+    false,
   ),
 
   new Meal(
@@ -197,6 +202,7 @@ export const MEALS = [
     false,
     true,
     false,
+    false,
   ),
 
   new Meal(
@@ -225,6 +231,7 @@ export const MEALS = [
     true,
     false,
     true,
+    false,
     false,
   ),
 
@@ -257,6 +264,7 @@ export const MEALS = [
     false,
     false,
     true,
+    false,
   ),
 
   new Meal(
@@ -304,6 +312,7 @@ export const MEALS = [
     false,
     true,
     false,
+    false,
   ),
   new Meal(
     "m10",
@@ -333,5 +342,6 @@ export const MEALS = [
     true,
     true,
     true,
+    false,
   ),
 ];
