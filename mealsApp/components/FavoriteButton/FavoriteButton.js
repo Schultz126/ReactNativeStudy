@@ -1,29 +1,25 @@
 import { Pressable, Text } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { useState } from "react";
-import { MEALS } from "../../data/dummie_data";
+import { FavoriteContext } from "../../store/context/favorites-context";
+import { useContext } from "react";
 
-const FavoriteButton = ({ onPress, isFavorite, id }) => {
-  const [pressed, setPressed] = useState(isFavorite);
-  function changeIcon() {
-    const nextState = !pressed; // Calculate the new value first
-    setPressed(nextState);
-
-    const selectedMeal = MEALS.find((meal) => meal.id === id);
-    if (selectedMeal) {
-      selectedMeal.isFavorite = nextState; // Use the calculated value
-    }
-  }
+const FavoriteButton = ({ id }) => {
+  const favoriteMealsCtx = useContext(FavoriteContext);
+  const mealIsFavorite = favoriteMealsCtx.ids.includes(id);
 
   function handlePress() {
-    changeIcon();
-    onPress();
+    if (mealIsFavorite) {
+      favoriteMealsCtx.removeFavorite(id);
+    } else {
+      favoriteMealsCtx.addFavorite(id);
+    }
   }
 
   return (
     <Pressable onPress={handlePress}>
       <Ionicons
-        name={!pressed ? "star-outline" : "star"}
+        name={!mealIsFavorite ? "star-outline" : "star"}
         size={24}
         color={"#000000"}
       />

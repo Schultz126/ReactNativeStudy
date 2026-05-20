@@ -7,6 +7,7 @@ import ListCard from "../../components/ListCard/ListCard";
 import ListItem from "../../components/ListItem/ListItem";
 import FavoriteButton from "../../components/FavoriteButton/FavoriteButton";
 import styles from "./MealInfoStyles";
+
 const MealInfoScreen = ({ route, navigation }) => {
   const { id } = route.params;
   const displayedMeal = MEALS.find((meal) => meal.id === id); // Retorna apenas a comida clicada
@@ -19,13 +20,7 @@ const MealInfoScreen = ({ route, navigation }) => {
         fontSize: 18,
       },
       headerRight: () => {
-        return (
-          <FavoriteButton
-            onPress={() => console.log("Pressed")}
-            isFavorite={displayedMeal.isFavorite}
-            id={id}
-          />
-        );
+        return <FavoriteButton id={id} />;
       },
     });
   }, [displayedMeal, navigation]);
