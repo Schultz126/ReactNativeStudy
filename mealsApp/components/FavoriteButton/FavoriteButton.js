@@ -21,7 +21,7 @@ const FavoriteButton = ({ id }) => {
       <Ionicons
         name={!mealIsFavorite ? "star-outline" : "star"}
         size={24}
-        color={"#000000"}
+        color={"#ffffff"}
       />
     </Pressable>
   );
