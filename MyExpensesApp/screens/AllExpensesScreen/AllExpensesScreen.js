@@ -1,4 +1,4 @@
-import { View, Text, ScrollView } from "react-native";
+import { View, Text, ScrollView, StyleSheet } from "react-native";
 import { useContext, useState } from "react";
 import ExpenseBox from "../../components/ExpenseBox/ExpenseBox";
 import DeleteConfirmationModal from "../../components/Message/Message";
@@ -27,9 +27,7 @@ const AllExpensesScreen = () => {
 
   return (
     <ScrollView contentContainerStyle={{ padding: 16 }}>
-      <Text style={{ fontSize: 18, fontWeight: "bold", marginBottom: 10 }}>
-        All expenses screen
-      </Text>
+      <Text style={style.text}>No expenses to show</Text>
 
       {expenses.map((item) => (
         <ExpenseBox
@@ -51,3 +49,11 @@ const AllExpensesScreen = () => {
 };
 
 export default AllExpensesScreen;
+
+const style = StyleSheet.create({
+  text: {
+    fontSize: 18,
+    fontWeight: "bold",
+    marginBottom: 10,
+  },
+});
