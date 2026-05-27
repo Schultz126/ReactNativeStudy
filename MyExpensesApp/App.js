@@ -8,6 +8,7 @@ import { Ionicons } from "@expo/vector-icons";
 
 // Components
 import AddExpenseButton from "./components/AddExpenseButton/AddExpenseButton";
+import ExpensesProvider from "./store/Context/ExpensesCTX";
 
 //Screens
 import RecentExpensesScreen from "./screens/RecentExpensesScreen/RecentExpensesScreen";
@@ -33,17 +34,19 @@ function BottomTabs() {
 
 export default function App() {
   return (
-    <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen
-          name="expenses"
-          component={BottomTabs}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen name="edit" component={EditExpensesScreen} />
-        <Stack.Screen name="add" component={AddExpenseScreen} />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <ExpensesProvider>
+      <NavigationContainer>
+        <Stack.Navigator>
+          <Stack.Screen
+            name="expenses"
+            component={BottomTabs}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen name="edit" component={EditExpensesScreen} />
+          <Stack.Screen name="add" component={AddExpenseScreen} />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </ExpensesProvider>
   );
 }
 
