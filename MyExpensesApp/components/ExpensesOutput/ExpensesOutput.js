@@ -24,7 +24,7 @@ const ExpensesOutput = ({ expenses, fallBackText, removeFunction }) => {
 
   return (
     <ScrollView>
-      {expenses === null ? (
+      {expenses.length === 0 ? (
         <Text style={style.text}>{fallBackText}</Text>
       ) : (
         expenses.map((item) => (

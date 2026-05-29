@@ -1,31 +1,55 @@
-import { Pressable, StyleSheet, Text } from "react-native";
-import { useNavigation } from "@react-navigation/native";
+import { Pressable, StyleSheet, Text, Platform } from "react-native";
 
-const ActionButton = ({ onPress, text, color }) => {
-  const navigate = useNavigation();
+const ActionButton = ({ onPress, text, color = "#FFF" }) => {
+  const isDarkBg = color === "black" || color === "#000" || color === "#000000";
 
   return (
     <Pressable
       onPress={onPress}
-      style={[style.container, { backgroundColor: color || "white" }]}
+      style={({ pressed }) => [
+        styles.container,
+        {
+          backgroundColor: color,
+          opacity: pressed ? 0.8 : 1,
+        },
+      ]}
     >
-      <Text>{text}</Text>
+      <Text style={[styles.text, { color: isDarkBg ? "#FFF" : "#1C1C1E" }]}>
+        {text}
+      </Text>
     </Pressable>
   );
 };
 
 export default ActionButton;
 
-const style = StyleSheet.create({
+const styles = StyleSheet.create({
   container: {
-    flex: 1,
     alignItems: "center",
+    justifyContent: "center",
     borderWidth: 1,
-    borderColor: "#000",
-    maxWidth: "15%",
-    minHeight: "4%",
-    padding: "1%",
-    elevation: 7,
-    overflow: "hidden",
+    borderColor: "rgba(0, 0, 0, 0.1)", // Softened border
+    borderRadius: 10, // Modern, slightly rounder corners
+    paddingVertical: 12, // Fixed pixel spacing for predictability
+    paddingHorizontal: 24,
+    marginVertical: 8,
+
+    // Cross-platform shadows
+    ...Platform.select({
+      ios: {
+        shadowColor: "#000",
+        shadowOffset: { width: 0, height: 4 },
+        shadowOpacity: 0.15,
+        shadowRadius: 6,
+      },
+      android: {
+        elevation: 4, // Slightly lowered for a cleaner, modern look
+      },
+    }),
+  },
+  text: {
+    fontSize: 16,
+    fontWeight: "600", // Semi-bold for buttons
+    letterSpacing: 0.2,
   },
 });

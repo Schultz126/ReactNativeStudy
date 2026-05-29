@@ -1,6 +1,6 @@
 //React, react-native & expo
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, Platform } from "react-native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { NavigationContainer } from "@react-navigation/native";
@@ -9,6 +9,7 @@ import { Ionicons } from "@expo/vector-icons";
 // Components
 import AddExpenseButton from "./components/AddExpenseButton/AddExpenseButton";
 import ExpensesProvider from "./store/Context/ExpensesCTX";
+import Colors from "./utils/Colors/Colors";
 
 //Screens
 import RecentExpensesScreen from "./screens/RecentExpensesScreen/RecentExpensesScreen";
@@ -22,9 +23,20 @@ const Stack = createStackNavigator();
 function BottomTabs() {
   return (
     <Tabs.Navigator
-      screenOptions={{
+      screenOptions={({ route }) => ({
         headerRight: () => <AddExpenseButton />,
-      }}
+        tabBarIcon: ({ color, size }) => {
+          const iconName =
+            route.name === "Recent" ? "time-outline" : "calendar-outline";
+          return <Ionicons name={iconName} size={size} color={color} />;
+        },
+        tabBarActiveTintColor: Colors.secondary,
+        tabBarInactiveTintColor: Colors.primary,
+        tabBarActiveBackgroundColor: Colors.activeTab,
+        headerStyle: { backgroundColor: Colors.primary },
+        sceneStyle: { backgroundColor: Colors.bgWhite },
+        headerTintColor: Colors.bgWhite,
+      })}
     >
       <Tabs.Screen name="Recent" component={RecentExpensesScreen} />
       <Tabs.Screen name="AllExpenses" component={AllExpensesScreen} />
@@ -35,8 +47,15 @@ function BottomTabs() {
 export default function App() {
   return (
     <ExpensesProvider>
+      <StatusBar style="light" />
       <NavigationContainer>
-        <Stack.Navigator>
+        <Stack.Navigator
+          screenOptions={{
+            headerStyle: { backgroundColor: Colors.primary },
+            headerTitleStyle: { color: Colors.bgWhite },
+            headerTintColor: Colors.bgWhite,
+          }}
+        >
           <Stack.Screen
             name="expenses"
             component={BottomTabs}
@@ -49,12 +68,3 @@ export default function App() {
     </ExpensesProvider>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});

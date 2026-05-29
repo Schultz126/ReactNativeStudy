@@ -33,6 +33,7 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.1,
     shadowRadius: 4,
     elevation: 3,
+    margin: "2%",
   },
   card: {
     flexDirection: "row",

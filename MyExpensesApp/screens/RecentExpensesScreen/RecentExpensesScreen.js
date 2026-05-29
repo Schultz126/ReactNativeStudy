@@ -10,7 +10,7 @@ const RecentExpensesScreen = () => {
   return (
     <ExpensesOutput
       expenses={expenses}
-      fallBackText={"No expenses registered"}
+      fallBackText={"No recent expenses to show"}
       removeFunction={removeExpense}
       key={Date.now()}
     />

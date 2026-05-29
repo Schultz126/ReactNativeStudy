@@ -17,6 +17,10 @@
         "monochromeImage": "./assets/android-icon-monochrome.png"
       }
     },
+    "androidNavigationBar": {
+      "backgroundColor": "#F4F9E9",
+      "barStyle": "light-content"
+    },
     "web": {
       "favicon": "./assets/favicon.png"
     }
