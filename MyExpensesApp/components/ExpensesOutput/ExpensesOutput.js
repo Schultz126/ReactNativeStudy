@@ -32,8 +32,8 @@ const ExpensesOutput = ({ expenses, fallBackText, removeFunction }) => {
             key={item.id}
             expense={item.expense}
             value={item.amount}
-            onDelete={() => handleOpenDeleteAlert(item)}
-            id={item.id} // Abre o alerta passando o item todo
+            onDelete={() => handleOpenDeleteAlert(item)} // Abre o alerta passando o item todo
+            id={item.id} // Não consegui extrair key dentro de ExpenseBox
           />
         ))
       )}

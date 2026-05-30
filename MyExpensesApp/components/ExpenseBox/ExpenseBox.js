@@ -7,7 +7,7 @@ const ExpenseBox = ({ expense, value, onDelete, id }) => {
 
   function handlePress() {
     navigate.navigate("edit", {
-      expense: expense,
+      expense: expense, // Parâmetros usados para teste. Na prática apenas id será necessário
       value: value,
       id: id,
     });

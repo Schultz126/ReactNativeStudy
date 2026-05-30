@@ -4,6 +4,7 @@ export const ExpensesContext = createContext({
   expenses: [],
   addExpense: (expenseData) => {},
   removeExpense: (id) => {},
+  editExpense: (id) => {},
 });
 
 function ExpensesProvider({ children }) {
@@ -21,10 +22,19 @@ function ExpensesProvider({ children }) {
     );
   };
 
+  const editExpense = (id, expenseData) => {
+    setExpenses((currentExpenses) =>
+      currentExpenses.map((expense) =>
+        expense.id === id ? { ...expense, ...expenseData } : expense,
+      ),
+    );
+  }
+
   const values = {
     expenses: expenses,
     addExpense: addExpense,
     removeExpense: removeExpense,
+    editExpense: editExpense,
   };
 
   return (
