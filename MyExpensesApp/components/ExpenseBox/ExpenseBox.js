@@ -1,12 +1,24 @@
 import { Pressable, Text, View, StyleSheet } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
+import { useNavigation } from "@react-navigation/native";
 
-const ExpenseBox = ({ expense, value, onDelete }) => {
+const ExpenseBox = ({ expense, value, onDelete, id }) => {
+  const navigate = useNavigation();
+
+  function handlePress() {
+    navigate.navigate("edit", {
+      expense: expense,
+      value: value,
+      id: id,
+    });
+  }
+
   return (
     <View style={styles.cardContainer}>
       <Pressable
         style={({ pressed }) => [styles.card, pressed && styles.pressed]}
         android_ripple={{ color: "#ccc" }}
+        onPress={handlePress}
       >
         <View style={styles.infoContainer}>
           <Text style={styles.expenseText}>{expense}</Text>

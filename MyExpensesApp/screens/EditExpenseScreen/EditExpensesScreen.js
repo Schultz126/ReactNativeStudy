@@ -1,9 +1,10 @@
 import { View, Text } from "react-native";
 
-const EditExpensesScreen = () => {
+const EditExpensesScreen = ({ route }) => {
+  const { expense, value, id } = route.params;
   return (
     <View>
-      <Text>Edit expenses screen</Text>
+      <Text>{`${expense} & ${value}`}</Text>
     </View>
   );
 };
